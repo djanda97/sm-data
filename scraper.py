@@ -1,39 +1,55 @@
 # Web scraper to gather data from a wiki page about enemies from Super Metroid.
 # Implemented using the BeautifulSoup and requests libraries.
 from bs4 import BeautifulSoup
+import os.path as path
 import pprint
 import requests
 
-baseUrl = "https://wiki.supermetroid.run"
-enemiesUrl = baseUrl + "/Enemies"
-req = requests.get(enemiesUrl)
 
-pp = pprint.PrettyPrinter(indent=4)
+def get_html(filename, url):
+    if path.isfile(filename):
+        file = open(filename, "r")
+        return BeautifulSoup(file, "html.parser")
+    else:
+        # baseUrl = "https://wiki.supermetroid.run"
+        # enemiesUrl = baseUrl + "/Enemies"
+        req = requests.get(url)
+        file = open(filename, "w+")
+        file.write(req.text)
+        return BeautifulSoup(req.text, "html.parser")
 
-soup = BeautifulSoup(req.text, "html.parser")
 
-all_tables = soup.find_all("table")
-crateria = all_tables[0]
+def get_table_rows(table):
+    # Splicing [1:] ignores first element of list
+    # for tr in table.find_all("tr")[1:]:
+    table_rows = [[th.string for th in table.find_all("th")]]
 
-print("len(all_tables):", len(all_tables))
+    for tr in table.find_all("tr"):
+        row = [td.string for td in tr.find_all("td")]
+        table_rows.append(row)
 
-table_headings = []
+    return [row for row in table_rows if row]
 
-for th in crateria.find_all("th"):
-    table_headings.append(th.string)
 
-print("table_headings:")
-pp.pprint(table_headings)
+def assign_data_to_tables(tables, html_tables):
+    for i, name in enumerate(tables.keys()):
+        table = html_tables[i]
+        tables[name] = get_table_rows(table)
 
-table_rows = []
+def main():
+    pp = pprint.PrettyPrinter(indent=4)
+    soup = get_html(filename="sm_enemeies.html",
+                    url="https://wiki.supermetroid.run/Enemies")
+    html_tables = soup.find_all("table")
+    table_names = ("Crateria", "Brinstar", "Wrecked Ship", "Maridia",
+                   "Norfair", "Tourian", "Bosses", "Bosses (Projectiles)")
 
-# Splicing [1:] ignores first element of list
-for tr in crateria.find_all("tr")[1:]:
-    row = []
-    for td in tr.find_all("td"):
-        # print(td)
-        row.append(td.string)
-    table_rows.append(row)
+    tables = {name: [] for name in table_names}
+    
+    assign_data_to_tables(tables, html_tables)
 
-print("table_rows:")
-pp.pprint(table_rows)
+    print("\ntables:")
+    pp.pprint(tables)
+
+
+main()
