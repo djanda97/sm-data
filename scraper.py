@@ -1,7 +1,8 @@
 # Web scraper to gather data from a wiki page about enemies from Super Metroid.
 # Implemented using the BeautifulSoup and requests libraries.
 from bs4 import BeautifulSoup
-import os.path as path
+from os import path
+import csv
 import pprint
 import requests
 
@@ -20,10 +21,6 @@ def get_html(filename, url):
 def get_table_rows(table):
     table_rows = [[th.string for th in table.find_all("th")]]
     baseUrl = "https://wiki.supermetroid.run"
-
-    # for tr in table.find_all("tr"):
-    #     row = [td.string for td in tr.find_all("td")]
-    #     table_rows.append(row)
 
     for tr in table.find_all("tr"):
         row = []
@@ -53,6 +50,13 @@ def assign_data_to_tables(tables, html_tables):
         tables[name] = get_table_rows(table)
 
 
+def write_to_csv(tables):
+    for name in tables.keys():
+        with open("./data/" + name + ".csv", mode="w") as file:
+            writer = csv.writer(file, delimiter=",")
+            writer.writerows(tables.get(name))
+
+
 def main():
     pp = pprint.PrettyPrinter(indent=4)
     soup = get_html(filename="sm_enemeies.html",
@@ -64,6 +68,8 @@ def main():
     tables = {name: [] for name in table_names}
 
     assign_data_to_tables(tables, html_tables)
+
+    write_to_csv(tables)
 
     print("\ntables:")
     pp.pprint(tables)

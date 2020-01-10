@@ -1,0 +1,10 @@
+ Enemy , Name , Damage (P/V/G) , Health , Nothing , Small Energy , Big Energy , Missile , Super , Power Bomb ," Notes
+"
+https://wiki.supermetroid.run/images/8/86/Blue_Sidehopper.gif,Sidehopper, 120/60/30 , 1500 , 40 , 8 , 8 , 22 , 22 , 2 ," The Sidehopper that the Super Metroid attacks deals 80/40/20 damage and does not drop items
+"
+https://wiki.supermetroid.run/images/7/73/Metroid.gif,Metroid, 12/6/3 , 500 , 4 , 10 , 20 , 36 , 20 , 12 ," Damage amounts are per 16 frames
+"
+https://wiki.supermetroid.run/images/6/62/Rinka.gif,Rinka, 40/20/10 , 10 , 102 , 0 , 0 , 0 , 0 , 0 ,"
+"
+https://wiki.supermetroid.run/images/3/3c/Space_Pirate_%28Tourian%29.gif,Space Pirate (all), 15/7/3 , 500 , 102 , 0 , 0 , 0 , 0 , 0 ,"
+"
