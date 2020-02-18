@@ -18,8 +18,9 @@ def get_html(filename, url):
         return BeautifulSoup(req.text, "html.parser")
 
 
-def get_table_rows(table):
-    table_rows = [[th.string for th in table.find_all("th")]]
+def get_table_rows(table, location):
+    table_rows = [[th.string.strip() for th in table.find_all("th")]]
+    table_rows[0].append("Location")
     baseUrl = "https://wiki.supermetroid.run"
 
     for tr in table.find_all("tr"):
@@ -28,15 +29,23 @@ def get_table_rows(table):
         for td in tr.find_all("td"):
             image = td.find("img")
             name = td.find_all("a")
+            value = None
 
             if image:
-                image = image["src"]
-                row.append(baseUrl + image)
+                value = baseUrl + image["src"]
             elif name:
-                name = name[0]
-                row.append(name.string)
+                value = name[0].string.strip()
             else:
-                row.append(td.string)
+                text = td.string.strip()
+                try:
+                    value = float(text)
+                except:
+                    value = text
+            
+            row.append(value)
+
+        if row:
+            row.append(location)
 
         table_rows.append(row)
 
@@ -44,10 +53,11 @@ def get_table_rows(table):
 
 
 # Refactor to not mutate table state
-def assign_data_to_tables(tables, html_tables):
-    for i, name in enumerate(tables.keys()):
+def assign_data_to_tables(tables, html_tables, table_names):
+    for i in range(len(table_names)):
         table = html_tables[i]
-        tables[name] = get_table_rows(table)
+        name = table_names[i]
+        tables[name] = get_table_rows(table, name)
 
 
 def write_to_csv(tables):
@@ -62,12 +72,13 @@ def main():
     soup = get_html(filename="sm_enemeies.html",
                     url="https://wiki.supermetroid.run/Enemies")
     html_tables = soup.find_all("table")
-    table_names = ("Crateria", "Brinstar", "Wrecked Ship", "Maridia",
-                   "Norfair", "Tourian", "Bosses", "Bosses (Projectiles)")
+    table_names = ["Crateria", "Brinstar", "Wrecked Ship", "Maridia",
+                   "Norfair", "Tourian"]
+    # boss_tables = {"Bosses", "Bosses (Projectiles)"}
 
     tables = {name: [] for name in table_names}
 
-    assign_data_to_tables(tables, html_tables)
+    assign_data_to_tables(tables, html_tables, table_names)
 
     write_to_csv(tables)
 

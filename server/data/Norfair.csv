@@ -1,0 +1,35 @@
+Enemy,Name,Damage (P/V/G),Health,Nothing,Small Energy,Big Energy,Missile,Super,Power Bomb,Notes,Location
+https://wiki.supermetroid.run/images/5/53/Alcoon.gif,Alcoon,50/25/12,200.0,0.0,0.4,0.0,0.0,0.0,101.6,,Norfair
+https://wiki.supermetroid.run/images/0/09/Boulder.gif,Boulder,40/20/10,20.0,102.0,0.0,0.0,0.0,0.0,0.0,,Norfair
+https://wiki.supermetroid.run/images/4/4a/Cacatac.gif,Cacatac,20/10/5,60.0,0.0,0.0,0.4,0.0,101.6,0.0,,Norfair
+https://wiki.supermetroid.run/images/3/35/Dessgeega.gif,Dessgeega,160/80/40,800.0,38.0,32.0,8.0,20.0,2.0,2.0,,Norfair
+https://wiki.supermetroid.run/images/e/e0/Dragon.gif,Dragon,24/12/6,300.0,30.0,20.0,20.0,28.0,2.0,2.0,,Norfair
+https://wiki.supermetroid.run/images/5/57/Fireflea.gif,Fireflea,4/2/1,20.0,0.0,0.0,0.4,0.0,0.0,101.6,,Norfair
+https://wiki.supermetroid.run/images/9/9e/Fune.gif,Fune,10/5/2,20.0,2.0,32.0,32.0,32.0,2.0,2.0,kago,Norfair
+https://wiki.supermetroid.run/images/1/1f/Gamet.gif,Gamet,16/8/4,20.0,2.0,24.0,24.0,24.0,24.0,4.0,,Norfair
+https://wiki.supermetroid.run/images/7/71/Geemer_%28grey%29.gif,Geemer,5/2/1,15.0,40.0,52.0,8.0,0.0,0.0,2.0,,Norfair
+https://wiki.supermetroid.run/images/4/43/Geruta.gif,Geruta,60/30/15,120.0,2.0,24.0,24.0,24.0,24.0,4.0,,Norfair
+https://wiki.supermetroid.run/images/7/79/Holtz.gif,Holtz,120/60/30,900.0,0.0,0.0,48.0,20.0,20.0,14.0,,Norfair
+https://wiki.supermetroid.run/images/3/3b/Kago.gif,Kago,0.0,1600.0,2.0,20.0,36.0,28.0,8.0,8.0,,Norfair
+https://wiki.supermetroid.run/images/1/17/Kamer.gif,Kamer,0.0,20.0,2.0,32.0,32.0,32.0,2.0,2.0,,Norfair
+https://wiki.supermetroid.run/images/9/95/Kihunter_%28red%29.gif,Kihunter,200/100/50,1800.0,8.0,14.0,48.0,4.0,24.0,4.0,,Norfair
+https://wiki.supermetroid.run/images/5/58/Magdollite.gif,Magdollite,40/20/10,20.0,2.0,32.0,32.0,32.0,2.0,2.0,,Norfair
+https://wiki.supermetroid.run/images/6/69/Mella.gif,Mella,16/8/4,30.0,28.0,28.0,12.0,32.0,2.0,0.0,,Norfair
+https://wiki.supermetroid.run/images/3/35/Multiviola.gif,Multiviola,50/25/12,90.0,28.0,28.0,12.0,30.0,2.0,2.0,,Norfair
+https://wiki.supermetroid.run/images/7/7a/Namihe.gif,Namihe,10/5/2,20.0,2.0,32.0,32.0,32.0,2.0,2.0,kago,Norfair
+https://wiki.supermetroid.run/images/a/a8/Puromi.gif,Puromi,64/32/16,40.0,102.0,0.0,0.0,0.0,0.0,0.0,,Norfair
+https://wiki.supermetroid.run/images/1/1f/Puyo.gif,Puyo,60/30/15,100.0,2.0,24.0,24.0,24.0,4.0,24.0,,Norfair
+https://wiki.supermetroid.run/images/9/96/Ripper_2_%28green%29.gif,Ripper 2,10/5/2,200.0,0.0,0.0,0.4,0.0,101.6,0.0,,Norfair
+https://wiki.supermetroid.run/images/a/a2/Ripper_2_%28red%29.gif,Ripper 2,10/5/2,200.0,0.0,0.0,0.4,0.0,101.6,0.0,,Norfair
+https://wiki.supermetroid.run/images/7/73/Skree.gif,Skree,10/5/2,15.0,54.8,8.0,1.2,34.0,2.0,2.0,,Norfair
+https://wiki.supermetroid.run/images/7/7f/Small_Dessgeega.gif,Sm. Dessgeega,80/40/20,120.0,0.0,0.4,0.0,0.0,0.0,101.6,,Norfair
+https://wiki.supermetroid.run/images/a/a3/Sova.gif,Sova,20/10/5,40.0,10.0,32.0,28.0,12.0,20.0,0.0,,Norfair
+https://wiki.supermetroid.run/images/3/3f/Space_Pirate_%28red%29.gif,Space Pirate (standing),80/40/20,200.0,78.0,4.0,8.0,8.0,2.0,2.0,,Norfair
+https://wiki.supermetroid.run/images/e/eb/Space_Pirate_%28yellow%29.gif,Space Pirate (standing),200/100/50,900.0,0.0,20.0,48.0,32.0,2.0,0.0,,Norfair
+https://wiki.supermetroid.run/images/c/c6/Space_Pirate_%28yellow%29_%2Awall%2A.gif,Space Pirate (wall),200/100/50,900.0,78.0,4.0,8.0,8.0,2.0,2.0,,Norfair
+https://wiki.supermetroid.run/images/7/7d/Space_Pirate_%28silver%29_%2Afighting%2A.gif,Space Pirate (fighting),100/50/25,1800.0,0.0,0.0,60.0,2.0,40.0,0.0,,Norfair
+https://wiki.supermetroid.run/images/a/a4/Squeept.gif,Squeept,50/25/12,300.0,2.0,20.0,20.0,20.0,20.0,20.0,,Norfair
+https://wiki.supermetroid.run/images/c/c2/Tripper.gif,Tripper,0.0,20.0,2.0,32.0,32.0,32.0,2.0,2.0,,Norfair
+https://wiki.supermetroid.run/images/0/08/Viola.gif,Viola,15/7/3,30.0,0.0,0.4,0.0,0.0,0.0,101.6,,Norfair
+https://wiki.supermetroid.run/images/b/b3/Waver.gif,Waver,10/5/2,30.0,2.0,24.0,24.0,24.0,24.0,4.0,,Norfair
+https://wiki.supermetroid.run/images/1/18/Zebbo.gif,Zebbo,20/10/5,30.0,0.0,0.0,56.0,4.0,40.0,2.0,,Norfair

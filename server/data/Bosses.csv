@@ -1,0 +1,26 @@
+Enemy,Name,Damage (P/V/G),Health,Nothing,Small Energy,Big Energy,Missile,Super,Power Bomb,Notes,Location
+https://wiki.supermetroid.run/images/5/53/Alcoon.gif,Alcoon,50/25/12,200.0,0.0,0.4,0.0,0.0,0.0,101.6,,Bosses
+https://wiki.supermetroid.run/images/5/5d/Beetom.gif,Beetom,10/5/2,50.0,0.0,0.4,0.0,0.0,0.0,101.6,Damages every 64 frames,Bosses
+https://wiki.supermetroid.run/images/6/61/Boyon.gif,Boyon,10/5/2,1000.0,52.0,8.0,4.0,34.0,2.0,2.0,,Bosses
+https://wiki.supermetroid.run/images/1/10/Choot.gif,Choot,80/40/20,100.0,2.0,24.0,24.0,24.0,24.0,4.0,,Bosses
+https://wiki.supermetroid.run/images/1/10/Geemer_%28blue%29.gif,Geemer,5/2/1,15.0,0.0,22.0,10.0,68.0,2.0,0.0,,Bosses
+https://wiki.supermetroid.run/images/7/71/Geemer_%28grey%29.gif,Geemer,5/2/1,15.0,40.0,52.0,8.0,0.0,0.0,2.0,,Bosses
+https://wiki.supermetroid.run/images/a/a3/Geemer_%28orange%29.gif,Geemer,5/2/1,15.0,40.0,52.0,8.0,0.0,0.0,2.0,,Bosses
+https://wiki.supermetroid.run/images/3/3b/Kago.gif,Kago,0.0,1600.0,2.0,20.0,36.0,28.0,8.0,8.0,kago,Bosses
+https://wiki.supermetroid.run/images/1/17/Kamer.gif,Kamer,0.0,20.0,2.0,32.0,32.0,32.0,2.0,2.0,,Bosses
+https://wiki.supermetroid.run/images/4/4d/Kihunter_%28green%29.gif,Kihunter,20/10/5,60.0,30.0,20.0,12.0,32.0,4.0,4.0,,Bosses
+https://wiki.supermetroid.run/images/f/f1/Mellow.gif,Mellow,8/4/2,9.0,28.0,12.0,28.0,32.0,2.0,0.0,,Bosses
+https://wiki.supermetroid.run/images/9/90/Reo.gif,Reo,15/7/3,45.0,16.0,12.0,32.0,34.0,4.0,4.0,,Bosses
+https://wiki.supermetroid.run/images/c/cf/Ripper.gif,Ripper,5/2/1,200.0,26.0,32.0,8.0,32.0,2.0,2.0,,Bosses
+https://wiki.supermetroid.run/images/9/96/Ripper_2_%28green%29.gif,Ripper 2,10/5/2,200.0,0.0,0.0,0.4,0.0,101.6,0.0,,Bosses
+https://wiki.supermetroid.run/images/c/c9/Sciser.gif,Sciser,120/60/30,200.0,0.0,0.4,40.0,0.0,0.0,61.6,,Bosses
+https://wiki.supermetroid.run/images/7/73/Skree.gif,Skree,10/5/2,15.0,54.8,8.0,1.2,34.0,2.0,2.0,,Bosses
+https://wiki.supermetroid.run/images/b/b7/Skultera.gif,Skultera,80/40/20,300.0,28.0,32.0,12.0,28.0,2.0,0.0,,Bosses
+https://wiki.supermetroid.run/images/4/4f/Space_Pirate.gif,Space Pirate (standing),15/7/3,20.0,0.0,20.0,48.0,32.0,2.0,0.0,,Bosses
+https://wiki.supermetroid.run/images/7/73/Space_Pirate_%28green%29.gif,Space Pirate (standing),20/10/5,90.0,18.0,20.0,12.0,40.0,8.0,4.0,,Bosses
+https://wiki.supermetroid.run/images/8/89/Space_Pirate_%2Awall%2A.gif,Space Pirate (wall),15/7/3,20.0,0.4,4.0,18.0,78.8,0.4,0.4,,Bosses
+https://wiki.supermetroid.run/images/c/c2/Tripper.gif,Tripper,0.0,20.0,2.0,32.0,32.0,32.0,2.0,2.0,,Bosses
+https://wiki.supermetroid.run/images/b/b3/Waver.gif,Waver,10/5/2,30.0,2.0,24.0,24.0,24.0,24.0,4.0,,Bosses
+https://wiki.supermetroid.run/images/1/1d/Yapping_Maw.gif,Yapping Maw,0.0,20.0,2.0,32.0,32.0,32.0,2.0,2.0,,Bosses
+https://wiki.supermetroid.run/images/9/9d/Zeb.gif,Zeb,6/3/1,9.0,2.0,24.0,24.0,24.0,24.0,4.0,,Bosses
+https://wiki.supermetroid.run/images/1/18/Zebbo.gif,Zebbo,20/10/5,30.0,0.0,0.0,56.0,4.0,40.0,2.0,,Bosses

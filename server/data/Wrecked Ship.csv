@@ -1,0 +1,8 @@
+Enemy,Name,Damage (P/V/G),Health,Nothing,Small Energy,Big Energy,Missile,Super,Power Bomb,Notes,Location
+https://wiki.supermetroid.run/images/7/72/Atomic.gif,Atomic,40/20/10,250.0,0.0,0.0,66.0,32.0,2.0,2.0,,Wrecked Ship
+https://wiki.supermetroid.run/images/6/63/Bull.gif,Bull,10/5/2,100.0,0.0,0.0,2.0,0.0,0.0,100.0,,Wrecked Ship
+https://wiki.supermetroid.run/images/1/16/Covern.gif,Covern,50/25/12,300.0,0.0,20.0,38.0,28.0,8.0,8.0,Respawns after being destroyed,Wrecked Ship
+https://wiki.supermetroid.run/images/1/17/Kamer.gif,Kamer,0.0,20.0,2.0,32.0,32.0,32.0,2.0,2.0,,Wrecked Ship
+https://wiki.supermetroid.run/images/0/0a/Kihunter_%28yellow%29.gif,Kihunter,60/30/15,360.0,16.0,22.0,32.0,4.0,24.0,4.0,,Wrecked Ship
+https://wiki.supermetroid.run/images/b/b7/Skultera.gif,Skultera,80/40/20,300.0,28.0,32.0,12.0,28.0,2.0,0.0,,Wrecked Ship
+https://wiki.supermetroid.run/images/5/5b/Workrobot.gif,Workrobot,0.0,800.0,2.0,32.0,32.0,32.0,2.0,2.0,,Wrecked Ship
