@@ -66,30 +66,23 @@ export default function EnemiesForm() {
   };
 
   const onSubmit = () => {
+    const url = "http://localhost:3002/api/enemies/" + health;
+    console.log(`url: ${url}`);
     axios
-      .get("http://localhost:3002/api/enemies/?name=" + name)
+      .post(url, {
+        health: health
+      })
       .then(response => console.log(response))
       .catch(error => console.log(error));
   };
 
   return (
     <div>
-      <form action={"http://localhost:3002/api/enemies/" + health} method="GET">
+      <form
+        action={"http://localhost:3002/api/enemies/" + health}
+        method="POST"
+      >
         {/* <form onSubmit={onSubmit}> */}
-        {/* <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-label">Name</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={name}
-            onChange={handleNameChange}
-          >
-            <MenuItem value={"Metroid"}>Metroid</MenuItem>
-            <MenuItem value={"Space Pirate"}>Space Pirate</MenuItem>
-            <MenuItem value={"Waver"}>Waver</MenuItem>
-          </Select>
-        </FormControl> */}
-
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">Health</InputLabel>
           <Select

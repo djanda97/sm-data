@@ -15,7 +15,7 @@ const App = () => {
 
   const appStlye = {
     textAlign: "center",
-    backgroundColor: "gray"
+    backgroundColor: "#4F5B66"
   };
 
   return (

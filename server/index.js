@@ -36,6 +36,8 @@ const getAllEnemies = (request, response) => {
 // });
 
 const queryHealth = (request, response) => {
+  const body = request.body;
+  console.log(`body: ${body.health}`);
   const health = request.params.health;
   console.log(`health: ${health}`);
 
@@ -51,25 +53,25 @@ const queryHealth = (request, response) => {
   );
 };
 
-// Generic route
-// app.get("/api/enemies/:field", (request, response) => {
-//   const field = request.params.field;
-//   console.log(`field: ${field}`);
+const querySmallEnergy = (request, response) => {
+  const smallEnergy = request.params.smallEnergy;
+  console.log(`smallEnergy: ${smallEnergy}`);
 
-//   pool.query(
-//     `SELECT * FROM enemies WHERE ${field} > ($1)`,
-//     [field],
-//     (error, results) => {
-//       if (error) {
-//         throw error;""
-//       }
-//       response.status(200).json(results.rows);
-//     }
-//   );
-// });
+  pool.query(
+    "SELECT * FROM enemies WHERE small_energy > $(1)",
+    [smallEnergy],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(200).json(results.rows);
+    }
+  );
+};
 
 app.route("/api/enemies").get(getAllEnemies);
-app.route("/api/enemies/:health").get(queryHealth);
+app.route("/api/enemies/:health").post(queryHealth);
+// app.route("/api/enemies/:smallEnergy").get(querySmallEnergy);
 
 const port = process.env.PORT || 3002;
 
