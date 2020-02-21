@@ -7,18 +7,47 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import axios from "axios";
 
-const useStyles = makeStyles(theme => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2)
-  }
-}));
+const SelectMenu = ({ title, selectValue, onChange, menuValues }) => {
+  const useStyles = makeStyles(theme => ({
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120
+    },
+    selectEmpty: {
+      marginTop: theme.spacing(2)
+    }
+  }));
+
+  const classes = useStyles();
+
+  return (
+    <FormControl className={classes.formControl}>
+      <InputLabel id="demo-simple-select-label">{title}</InputLabel>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        value={selectValue}
+        onChange={onChange}
+      >
+        {menuValues.map(value => (
+          <MenuItem value={value}>{value}</MenuItem>
+        ))}
+      </Select>
+    </FormControl>
+  );
+};
+
+const healthValues = [100, 200, 500, 750, 1000, 1250, 1500, 1750, 2000];
+const percentages = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+const locations = [
+  "Crateria",
+  "Brinstar",
+  "Norfair",
+  "Wrecked Ship",
+  "Tourian"
+];
 
 export default function EnemiesForm() {
-  const classes = useStyles();
   const [name, setName] = React.useState("");
   const [health, setHealth] = React.useState("");
   const [nothing, setNothing] = React.useState("");
@@ -83,167 +112,61 @@ export default function EnemiesForm() {
         method="POST"
       >
         {/* <form onSubmit={onSubmit}> */}
-        <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-label">Health</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={health}
-            onChange={handleHealthChange}
-          >
-            <MenuItem value={100}>100</MenuItem>
-            <MenuItem value={200}>200</MenuItem>
-            <MenuItem value={500}>500</MenuItem>
-            <MenuItem value={750}>750</MenuItem>
-            <MenuItem value={1000}>1000</MenuItem>
-            <MenuItem value={1250}>1250</MenuItem>
-            <MenuItem value={1500}>1500</MenuItem>
-            <MenuItem value={1750}>1750</MenuItem>
-            <MenuItem value={2000}>2000</MenuItem>
-          </Select>
-        </FormControl>
+        <SelectMenu
+          title="Health"
+          selectValue={health}
+          onChange={handleHealthChange}
+          menuValues={healthValues}
+        />
 
-        <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-label">Nothing</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={nothing}
-            onChange={handleNothingChange}
-          >
-            <MenuItem value={10}>10</MenuItem>
-            <MenuItem value={20}>20</MenuItem>
-            <MenuItem value={30}>30</MenuItem>
-            <MenuItem value={40}>40</MenuItem>
-            <MenuItem value={50}>50</MenuItem>
-            <MenuItem value={60}>60</MenuItem>
-            <MenuItem value={70}>70</MenuItem>
-            <MenuItem value={80}>80</MenuItem>
-            <MenuItem value={90}>90</MenuItem>
-            <MenuItem value={100}>100</MenuItem>
-          </Select>
-        </FormControl>
+        <SelectMenu
+          title="Nothing"
+          selectValue={nothing}
+          onChange={handleNothingChange}
+          menuValues={percentages}
+        />
 
-        <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-label">Small Energy</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={smallEnergy}
-            onChange={handleSmallEnergyChange}
-          >
-            <MenuItem value={10}>10</MenuItem>
-            <MenuItem value={20}>20</MenuItem>
-            <MenuItem value={30}>30</MenuItem>
-            <MenuItem value={40}>40</MenuItem>
-            <MenuItem value={50}>50</MenuItem>
-            <MenuItem value={60}>60</MenuItem>
-            <MenuItem value={70}>70</MenuItem>
-            <MenuItem value={80}>80</MenuItem>
-            <MenuItem value={90}>90</MenuItem>
-            <MenuItem value={100}>100</MenuItem>
-          </Select>
-        </FormControl>
+        <SelectMenu
+          title="Small Energy"
+          selectValue={smallEnergy}
+          onChange={handleSmallEnergyChange}
+          menuValues={percentages}
+        />
 
-        <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-label">Big Energy</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={bigEnergy}
-            onChange={handleBigEnergyChange}
-          >
-            <MenuItem value={10}>10</MenuItem>
-            <MenuItem value={20}>20</MenuItem>
-            <MenuItem value={30}>30</MenuItem>
-            <MenuItem value={40}>40</MenuItem>
-            <MenuItem value={50}>50</MenuItem>
-            <MenuItem value={60}>60</MenuItem>
-            <MenuItem value={70}>70</MenuItem>
-            <MenuItem value={80}>80</MenuItem>
-            <MenuItem value={90}>90</MenuItem>
-            <MenuItem value={100}>100</MenuItem>
-          </Select>
-        </FormControl>
+        <SelectMenu
+          title="Big Energy"
+          selectValue={bigEnergy}
+          onChange={handleBigEnergyChange}
+          menuValues={percentages}
+        />
 
-        <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-label">Missile</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={missile}
-            onChange={handleMissileChange}
-          >
-            <MenuItem value={10}>10</MenuItem>
-            <MenuItem value={20}>20</MenuItem>
-            <MenuItem value={30}>30</MenuItem>
-            <MenuItem value={40}>40</MenuItem>
-            <MenuItem value={50}>50</MenuItem>
-            <MenuItem value={60}>60</MenuItem>
-            <MenuItem value={70}>70</MenuItem>
-            <MenuItem value={80}>80</MenuItem>
-            <MenuItem value={90}>90</MenuItem>
-            <MenuItem value={100}>100</MenuItem>
-          </Select>
-        </FormControl>
+        <SelectMenu
+          title="Missile"
+          selectValue={missile}
+          onChange={handleMissileChange}
+          menuValues={percentages}
+        />
 
-        <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-label">Super</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={superMissile}
-            onChange={handleSuperMissileChange}
-          >
-            <MenuItem value={10}>10</MenuItem>
-            <MenuItem value={20}>20</MenuItem>
-            <MenuItem value={30}>30</MenuItem>
-            <MenuItem value={40}>40</MenuItem>
-            <MenuItem value={50}>50</MenuItem>
-            <MenuItem value={60}>60</MenuItem>
-            <MenuItem value={70}>70</MenuItem>
-            <MenuItem value={80}>80</MenuItem>
-            <MenuItem value={90}>90</MenuItem>
-            <MenuItem value={100}>100</MenuItem>
-          </Select>
-        </FormControl>
+        <SelectMenu
+          title="Super"
+          selectValue={superMissile}
+          onChange={handleSuperMissileChange}
+          menuValues={percentages}
+        />
 
-        <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-label">Power Bomb</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={powerBomb}
-            onChange={handlePowerBombChange}
-          >
-            <MenuItem value={10}>10</MenuItem>
-            <MenuItem value={20}>20</MenuItem>
-            <MenuItem value={30}>30</MenuItem>
-            <MenuItem value={40}>40</MenuItem>
-            <MenuItem value={50}>50</MenuItem>
-            <MenuItem value={60}>60</MenuItem>
-            <MenuItem value={70}>70</MenuItem>
-            <MenuItem value={80}>80</MenuItem>
-            <MenuItem value={90}>90</MenuItem>
-            <MenuItem value={100}>100</MenuItem>
-          </Select>
-        </FormControl>
+        <SelectMenu
+          title="Power Bomb"
+          selectValue={powerBomb}
+          onChange={handlePowerBombChange}
+          menuValues={percentages}
+        />
 
-        <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-label">Location</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={location}
-            onChange={handleLocationChange}
-          >
-            <MenuItem value={"Crateria"}>Crateria</MenuItem>
-            <MenuItem value={"Brinstar"}>Brinstar</MenuItem>
-            <MenuItem value={"Norfair"}>Norfair</MenuItem>
-            <MenuItem value={"Wrecked Ship"}>Wrecked Ship</MenuItem>
-            <MenuItem value={"Tourian"}>Tourian</MenuItem>
-          </Select>
-        </FormControl>
+        <SelectMenu
+          title="Location"
+          selectValue={location}
+          onChange={handleLocationChange}
+          menuValues={locations}
+        />
 
         <br />
 
