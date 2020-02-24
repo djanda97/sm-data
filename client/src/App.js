@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Button from "@material-ui/core/Button";
+import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
-import EnemyCard from "./components/EnemyCard";
-import EnemyGrid from "./components/EnemGrid";
+import Text from "./components/Text";
 import EnemyForm from "./components/EnemyForm";
-import Grid from "@material-ui/core/Grid";
-import SelectMenu from "./components/SelectMenu";
-import { healthValues, percentages, locations } from "./global";
+import EnemyGrid from "./components/EnemyGrid";
 
 const App = () => {
   const styles = {
@@ -15,136 +11,72 @@ const App = () => {
     padding: 20
   };
 
-  const [enemies, setEnemies] = useState([]);
-  const [enemyCards, setEnemyCards] = useState([]);
-
-  const [state, setState] = useState({
+  const [fields, setFields] = useState({
     health: "",
-    nothing: 0,
-    smallEnergy: 0,
-    bigEnergy: 0,
-    missile: 0,
-    superMissile: 0,
-    powerBomb: 0,
+    nothing: "",
+    smallEnergy: "",
+    bigEnergy: "",
+    missile: "",
+    superMissile: "",
+    powerBomb: "",
     location: ""
   });
 
   const handleChange = field => event => {
-    setState({
-      ...state,
+    setFields({
+      ...fields,
       [field]: event.target.value
     });
   };
 
-  useEffect(() => {
+  const [initialEnemies, setInitialEnemies] = useState([]);
+  const [enemies, setEnemies] = useState([]);
+
+  const fetchEnemies = () => {
     axios.get("http://localhost:3002/api/enemies").then(response => {
       console.log("Enemies retrieved.");
+      setInitialEnemies(response.data);
       setEnemies(response.data);
-      // setEnemyCards(<EnemyGrid enemies={response.data} />);
-      setEnemyCards(
-        response.data.map(enemy => (
-          <Grid key={enemy.id} item>
-            <EnemyCard enemy={enemy} />
-          </Grid>
-        ))
-      );
     });
-  }, []);
+  };
 
-  const onSubmit = event => {
+  useEffect(fetchEnemies, []);
+
+  const handleSubmit = event => {
     event.preventDefault();
-    setEnemyCards(
-      enemies
-        .filter(
-          enemy => enemy.health >= state.health //&&
-          // enemy.nothing >= state.nothing &&
-          // enemy.smallEnergy >= state.smallEnergy &&
-          // enemy.bigEnergy >= state.bigEnergy &&
-          // enemy.missile >= state.missile &&
-          // enemy.superMissile >= state.superMissile &&
-          // enemy.powerBomb >= state.powerBomb
-        )
-        .map(enemy => (
-          <Grid key={enemy.id} item>
-            <EnemyCard enemy={enemy} />
-          </Grid>
-        ))
+    console.log("Submitted.");
+    const filteredEnemies = enemies.filter(
+      enemy => enemy.health >= fields.health
     );
+    console.log(filteredEnemies);
+    setEnemies(filteredEnemies);
+  };
+
+  const handleReset = () => {
+    console.log("Enemies reset.");
+    setEnemies(initialEnemies);
   };
 
   return (
-    <div style={styles}>
-      <form onSubmit={onSubmit}>
-        {/* <EnemyForm state={state} /> */}
-        <SelectMenu
-          title="Health"
-          selectValue={state.health}
-          onChange={handleChange("health")}
-          menuValues={healthValues}
+    <Fragment>
+      <div style={styles}>
+        <Text
+          styles={{ textAlign: "center", fontSize: 32, color: "indigo" }}
+          text="Super Metroid: Enemy Data Search"
         />
-
-        <SelectMenu
-          title="Nothing"
-          selectValue={state.nothing}
-          onChange={handleChange("nothing")}
-          menuValues={percentages}
+        <Text
+          styles={{ textAlign: "center", fontSize: 20, color: "orange" }}
+          text="Each field value in the drop down menus indicates the minimum value. For example, selecting 500 in the health drop down means that you want to search for enemies that have at least 500 health. Fields containing values ranging from 0-100 indicate minimum percentages."
         />
-
-        <SelectMenu
-          title="Small Energy"
-          selectValue={state.smallEnergy}
-          onChange={handleChange("smallEnergy")}
-          menuValues={percentages}
+        <EnemyForm
+          fields={fields}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          handleReset={handleReset}
         />
-
-        <SelectMenu
-          title="Big Energy"
-          selectValue={state.bigEnergy}
-          onChange={handleChange("bigEnergy")}
-          menuValues={percentages}
-        />
-
-        <SelectMenu
-          title="Missile"
-          selectValue={state.missile}
-          onChange={handleChange("missile")}
-          menuValues={percentages}
-        />
-
-        <SelectMenu
-          title="Super"
-          selectValue={state.superMissile}
-          onChange={handleChange("superMissile")}
-          menuValues={percentages}
-        />
-
-        <SelectMenu
-          title="Power Bomb"
-          selectValue={state.powerBomb}
-          onChange={handleChange("powerBomb")}
-          menuValues={percentages}
-        />
-
-        <SelectMenu
-          title="Location"
-          selectValue={state.location}
-          onChange={handleChange("location")}
-          menuValues={locations}
-        />
-
-        <br />
-
-        <Button variant="contained" type="submit">
-          Search
-        </Button>
-      </form>
-
-      <br />
-
-      <Grid container justify="center" spacing={3}>
-        {enemyCards}
-      </Grid>
-    </div>
+        <EnemyGrid enemies={enemies} />
+      </div>
+    </Fragment>
   );
 };
 

@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
   media: {
     height: 0,
+    width: 95,
     paddingTop: "56.25%" // 16:9
   },
   expand: {
@@ -47,12 +48,13 @@ const EnemyCard = ({ enemy }) => {
     <Card className={classes.root}>
       <CardHeader title={enemy.name} subheader={enemy.location} />
 
-      <CardMedia
-        className={classes.media}
-        // image="/static/images/cards/paella.jpg"
-        image="../../public/logo192.png"
-        title={enemy.name}
-      />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <CardMedia
+          className={classes.media}
+          image={require("../images/Alcoon.gif")}
+          title={enemy.name}
+        />
+      </div>
 
       <CardActions disableSpacing>
         <IconButton
