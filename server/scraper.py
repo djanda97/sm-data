@@ -7,6 +7,15 @@ import pprint
 import requests
 
 
+def download_image(filename, url):
+    req = requests.get(url)
+    print("req:", req)
+    print("req.content:", req.content)
+    path = "images/" + filename
+    with open(path, "wb") as file:
+        file.write(req.content)
+    
+
 def get_html(filename, url):
     if path.isfile(filename):
         file = open(filename, "r")
@@ -33,6 +42,10 @@ def get_table_rows(table, location):
 
             if image:
                 value = baseUrl + image["src"]
+                filename = value[value.rfind("/") + 1:]
+                print("filename:", filename)
+                print("value:", value)
+                download_image(filename=filename, url=value)
             elif name:
                 value = name[0].string.strip()
             else:
@@ -82,8 +95,8 @@ def main():
 
     write_to_csv(tables)
 
-    print("\ntables:")
-    pp.pprint(tables)
+    # print("\ntables:")
+    # pp.pprint(tables)
 
 
 main()
