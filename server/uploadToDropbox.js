@@ -4,27 +4,18 @@ const fs = require("fs");
 const fetch = require("isomorphic-fetch");
 const Dropbox = require("dropbox").Dropbox;
 
-const dbx = new Dropbox({
-  accessToken: process.env.DROPBOX_ACCESS_TOKEN,
-  fetch: fetch
-});
-
-const listFolders = async path => {
+const listFolders = async (path, dropbox) => {
   try {
-    const response = await dbx.filesListFolder({ path });
-    console.log(response);
+    const response = await dropbox.filesListFolder({ path });
+    console.log(`response.entries.length: ${response.entries.length}`);
   } catch (error) {
     console.log(error);
   }
 };
 
-// listFolders("");
-
-const path = __dirname + "/images/";
-
-const uploadFile = async ({ filename, data }) => {
+const uploadImage = async ({ filename, data }, dropbox) => {
   try {
-    const response = await dbx.filesUpload({
+    const response = await dropbox.filesUpload({
       path: "/" + filename,
       contents: data
     });
@@ -49,16 +40,20 @@ const readImages = path => {
 };
 
 const main = () => {
-  listFolders("");
+  const dropbox = new Dropbox({
+    accessToken: process.env.DROPBOX_ACCESS_TOKEN,
+    fetch: fetch
+  });
 
+  listFolders("", dropbox);
+
+  const path = __dirname + "/images/";
   const images = readImages(path);
 
   images.forEach(image => {
-    console.log(`image.name: ${image.filename}`);
-    // console.log(`image.file: ${image.file}`)
+    console.log(`image.filename: ${image.filename}`);
+    uploadImage(image, dropbox);
   });
-
-  images.forEach(image => uploadFile(image));
 };
 
 main();
