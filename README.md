@@ -12,10 +12,6 @@ Basic overview of the features available in this application:
 database
 * HTTP requests can be sent to the Node.js backend to retrieve enemies from the database
 
-Since the main purpose of this project was for learning, I have yet to host it on the internet.  
-
-Before I host this application publicily, I would like to implement a few of the items listed in the [Roadmap](#roadmap) section.  
-
 ## Tech Stack
 ### Frontend
   * React  
